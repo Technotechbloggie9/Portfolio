@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <header>
+		<title>This is all for show</title>
+	</header>
+	<body>
+		<select id="id_of_select">
+			<option value="1">one</option>
+			<option value="2">two</option>
+			<option value="3">three</option>
+			<option value="4">four</option>
+		</select>
+
+<button id="btn">Show selected</button>
+
+<div id="display"></div>
+		<script type="text/javascript">
+			"use strict";
+
+	function show_selected() {
+	    var selector = document.getElementById('id_of_select');
+	    var value = selector[selector.selectedIndex].value;
+
+	    document.getElementById('display').innerHTML = value;
+	}
+
+	document.getElementById('btn').addEventListener('click', show_selected);;
+		</script>
+
+	</body>
+</html>
