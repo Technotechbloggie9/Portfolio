@@ -1,31 +1,54 @@
 <!DOCTYPE html>
 <html>
   <header>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>This is all for show</title>
-	</header>
-	<body>
-		<select id="id_of_select">
-			<option value="1">one</option>
-			<option value="2">two</option>
-			<option value="3">three</option>
-			<option value="4">four</option>
-		</select>
+    <style>
+      #hide{
+        width: 100%;
+        padding: 50px 0;
+        text-align: center;
+        background-color: lightblue;
+        margin-top: 20px;
+      }
+      </style>
+</header>
+<!-- the principle effect should be that of
+either smoke or mirrors or some combination of <thead>
+two -->
 
-<button id="btn">Show selected</button>
+<body>
+  <select id="id_of_select">
+    <option value="1">show</option>
+    <option value="2">hide</option>
+  </select>
+ <button id="btn">Show selected</button>
 
 <div id="display"></div>
-		<script type="text/javascript">
-			"use strict";
+<br>
+<div id="hide">Goodbye!</div>
+<script type="text/javascript">
+      function show_hide() {
+        var selector = document.getElementById('id_of_select');
+        var value = selector[selector.selectedIndex].value;
+        var x = document.getElementById("hide");
+        if(x.style.display === "none")
+        {
+          if(value == "1")
+          {
+            x.style.display = "block";
+          }
+        }
+        else {
+          if(value == "2"){
+            x.style.display = "none";
+          }
+        }
+        //document.getElementById('display').innerHTML = value;
+      }
 
-	function show_selected() {
-	    var selector = document.getElementById('id_of_select');
-	    var value = selector[selector.selectedIndex].value;
-
-	    document.getElementById('display').innerHTML = value;
-	}
-
-	document.getElementById('btn').addEventListener('click', show_selected);;
-		</script>
+      document.getElementById('btn').addEventListener('click', show_hide);;
+</script>
 
 	</body>
 </html>
